@@ -3,7 +3,7 @@ import java.util.TreeMap
 class Change {
     private val map by lazy {
         TreeMap<MonetaryElement, Int>(Comparator { lhs, rhs ->
-            lhs.minorValue.compareTo(rhs.minorValue)
+            -lhs.minorValue.compareTo(rhs.minorValue)
         })
     }
 

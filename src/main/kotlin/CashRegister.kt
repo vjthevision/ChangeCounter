@@ -49,9 +49,8 @@ class CashRegister(private val change: Change) {
         var remainingAmount = amountInCents
 
         // Convert to a list and sort in descending order
-        val denominations = change.getElements().sortedByDescending { it.minorValue }
-
-        for (denomination in denominations) {
+        //val denominations = change.getElements().sortedByDescending { it.minorValue }
+        for (denomination in change.getElements()) {
             val count = (remainingAmount / denomination.minorValue).toInt()
             val availableCount = change.getCount(denomination)
 
