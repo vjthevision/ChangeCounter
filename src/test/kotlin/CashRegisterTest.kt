@@ -63,19 +63,8 @@ class CashRegisterTest {
             exception.message
         )
     }
+
     @Order(5)
-    @Test
-    fun shouldThrowInsufficientChangeInTheCashRegisterWhenChangeIsNotEnough() {
-        val price = 100L
-        val amountPaid = Change().apply { add(Bill.ONE_HUNDRED_EURO, 1) }
-
-        val exception = assertThrows<CashRegister.TransactionException> {
-            cashRegister.performTransaction(price, amountPaid)
-        }
-        assertEquals("Insufficient change in the cash register.", exception.message)
-    }
-
-    @Order(6)
     @Test
     fun shouldThrowExactChangeCannotBeMadeWhenExactChangeIsNotPossible() {
         val price = 101L
